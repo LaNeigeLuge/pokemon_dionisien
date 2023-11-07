@@ -3,12 +3,13 @@ import pygame
 from entity import Entity
 from keylistener import KeyListener
 from screen import Screen
-
+from pokemon import Pokemon
 
 class Player(Entity):
     def __init__(self, keylistener: KeyListener, screen: Screen, x: int, y: int):
         super().__init__(keylistener, screen, x, y)
         self.pokedollars: int = 0
+        self.pokemons = [Pokemon.createPokemon("Pikachu", 10)]
 
     def update(self) -> None:
         self.check_move()
