@@ -15,7 +15,7 @@ class Map:
         self.tmx_data = pytmx.load_pygame(f"./assets/map/{map}.tmx")
         map_data = pyscroll.data.TiledMapData(self.tmx_data)
         self.map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
-        self.map_layer.zoom = 3
+        self.map_layer.zoom = 2
         self.group = pyscroll.PyscrollGroup(map_layer=self.map_layer, default_layer=7)
 
     def update(self):

@@ -11,7 +11,7 @@ class Entity(pygame.sprite.Sprite):
         self.keylistener: KeyListener = keylistener
         self.spritesheet: pygame.image = pygame.image.load("./assets/sprite/hero_01_red_m_walk.png")
         self.image: pygame.image = Tool.split_image(self.spritesheet, 0, 0, 12, 20)
-        self.position: pygame.math.Vector2 = pygame.math.Vector2(x+50, y+200)
+        self.position: pygame.math.Vector2 = pygame.math.Vector2(x+402, y+216)
         self.rect: pygame.Rect = self.image.get_rect()
         self.all_images = self.get_all_images()
         self.index_image: int = 0
@@ -117,3 +117,6 @@ class Entity(pygame.sprite.Sprite):
                         self.image_part = 2
                     else:
                         self.image_part = 0
+
+    def get_position(self):
+        print(self.position)

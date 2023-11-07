@@ -24,3 +24,5 @@ class Player(Entity):
                 self.move_up()
             elif self.keylistener.key_pressed(pygame.K_s):
                 self.move_down()
+            elif self.keylistener.key_pressed(pygame.K_m):
+                self.get_position()
