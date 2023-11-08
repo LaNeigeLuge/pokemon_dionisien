@@ -147,4 +147,4 @@ class Pokemon:
 
     @staticmethod
     def createPokemon(name:str, level:int) -> "Pokemon":
-        return Pokemon(json.loads(open(f"../assets/json/pokemon/{name.lower()}.json").read()), level)
+        return Pokemon(json.loads(open(f"./assets/json/pokemon/{name.lower()}.json").read()), level)

@@ -45,4 +45,4 @@ class Move:
 
     @staticmethod
     def create_move(name: str) -> "Move":
-        return Move(json.loads(open(f"../assets/json/moves/{name.lower()}.json").read()))
+        return Move(json.loads(open(f"./assets/json/moves/{name.lower()}.json").read()))
