@@ -10,7 +10,9 @@ class Player(Entity):
     def __init__(self, keylistener: KeyListener, screen: Screen, x: int, y: int):
         super().__init__(keylistener, screen, x, y)
         self.pokedollars: int = 0
-        self.pokemons = [Pokemon.createPokemon("Pikachu", 10)]
+        self.pokemons = [Pokemon.create_pokemon("Pikachu", 10),
+                         Pokemon.create_pokemon("Charizard", 10),
+                         Pokemon.create_pokemon("Squirtle", 10)]
         self.switch: list[Switch] = []
         self.change_map: Switch = None
 

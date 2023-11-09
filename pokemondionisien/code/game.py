@@ -3,11 +3,14 @@ from keylistener import KeyListener
 from map import Map
 from player import Player
 from screen import Screen
+from menu import Menu
 
 
 class Game:
     def __init__(self):
         self.running: bool = True
+        self.paused: bool = False
+        self.menu: Menu = Menu()
         self.screen: Screen = Screen()
         self.map: Map = Map(self.screen)
         self.keylistener: KeyListener = KeyListener()
@@ -17,7 +20,13 @@ class Game:
     def run(self) -> None:
         while self.running:
             self.handle_input()
-            self.map.update()
+            if self.paused is True:
+                self.map.update()
+                self.menu.display()
+                self.paused = self.menu.paused
+            else:
+                self.map.update()
+
             self.screen.update()
 
     def handle_input(self) -> None:
@@ -26,5 +35,10 @@ class Game:
                 pygame.quit()
             elif event.type == pygame.KEYDOWN:
                 self.keylistener.add_key(event.key)
+                if event.key == pygame.K_SPACE:
+                    print("Pausing game")
+                    self.paused = self.paused is not True
+                    self.menu.paused = self.paused
             elif event.type == pygame.KEYUP:
                 self.keylistener.remove_key(event.key)
+            

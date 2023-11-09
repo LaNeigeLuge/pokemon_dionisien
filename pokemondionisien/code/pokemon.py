@@ -125,10 +125,8 @@ class Pokemon:
         min_moves = 2
         if len(learnable_moves) < min_moves:
             min_moves = len(learnable_moves)
-        max_moves = 4
-        if len(learnable_moves) < 4:
-            max_moves = len(learnable_moves)
-        
+        max_moves = min(len(learnable_moves), 4)
+
         chosen_moves: list[Move] = []
         for _ in range(random.randint(min_moves, max_moves)):
             chosen = random.choice(learnable_moves)
@@ -146,5 +144,5 @@ class Pokemon:
         }
 
     @staticmethod
-    def createPokemon(name:str, level:int) -> "Pokemon":
+    def create_pokemon(name:str, level:int) -> "Pokemon":
         return Pokemon(json.loads(open(f"./assets/json/pokemon/{name.lower()}.json").read()), level)
