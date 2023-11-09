@@ -17,6 +17,7 @@ class Map:
         self.switch_map(self.current_map)
 
     def switch_map(self, switch: Switch):
+        print(" current map",self.current_map.name)
         self.tmx_data = pytmx.load_pygame(f"./assets/map/{switch.name}.tmx")
         map_data = pyscroll.data.TiledMapData(self.tmx_data)
         self.map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
@@ -71,6 +72,13 @@ class Map:
         self.player.add_switch(self.switch)
 
     def change_position(self, switch):
-        print(" le switch est ", switch)
-        position = self.tmx_data.get_object_by_name("spawn " + self.current_map.name + " " + str(switch.port))
-        self.player.position = pygame.math.Vector2(position.x, position.y)
+        print(" le switch est ", switch.name)
+        print(" le current map est ", self.current_map.name)
+
+        if switch.name == "map_start":
+            position = self.tmx_data.get_object_by_name("spawn " + self.current_map.name + " " + str(switch.port))
+            self.player.position = pygame.math.Vector2(position.x, position.y)
+        
+        else:
+            position = self.tmx_data.get_object_by_name("spawn " + switch.name + " " + str(switch.port))
+            self.player.position = pygame.math.Vector2(position.x, position.y)

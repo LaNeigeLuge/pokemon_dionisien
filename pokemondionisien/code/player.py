@@ -23,19 +23,22 @@ class Player(Entity):
             next_hitbox = self.hitbox.copy()
             if self.keylistener.key_pressed(pygame.K_q):
                 next_hitbox = self.check_hitbox("left", next_hitbox)
+                self.check_collisions_switch(next_hitbox)
                 self.move_left()
             elif self.keylistener.key_pressed(pygame.K_d):
                 next_hitbox = self.check_hitbox("right", next_hitbox)
+                self.check_collisions_switch(next_hitbox)
                 self.move_right()
             elif self.keylistener.key_pressed(pygame.K_z):
                 next_hitbox = self.check_hitbox("up", next_hitbox)
+                self.check_collisions_switch(next_hitbox)
                 self.move_up()
             elif self.keylistener.key_pressed(pygame.K_s):
                 next_hitbox = self.check_hitbox("down", next_hitbox)
+                self.check_collisions_switch(next_hitbox)
                 self.move_down()
             elif self.keylistener.key_pressed(pygame.K_m):
                 self.get_position()
-            self.check_collisions_switch(next_hitbox)
     
     def check_hitbox(self, direction: str, next_hitbox):
         if direction == "left":
@@ -55,7 +58,6 @@ class Player(Entity):
                     print("collision")
                     print("switch_player", switch.name)
                     self.change_map = switch
-                    return True
                 return None
 
 

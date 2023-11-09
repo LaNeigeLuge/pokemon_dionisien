@@ -124,8 +124,8 @@
  </layer>
  <group id="16" name="object">
   <objectgroup id="17" name="interface">
-   <object id="46" name="switch maison_0 0" x="64" y="160" width="32" height="16"/>
-   <object id="48" name="spawn maison_0 0" x="64" y="144">
+   <object id="46" name="switch map_start 0" x="64" y="160" width="32" height="16"/>
+   <object id="48" name="spawn maison_0 0" x="80" y="144">
     <point/>
    </object>
   </objectgroup>
