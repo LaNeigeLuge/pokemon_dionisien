@@ -399,7 +399,17 @@
    <object id="118" name="spawn route_1_0" x="1046" y="201.75">
     <point/>
    </object>
+   <object id="120" name="spawn map_start 0" x="400" y="224">
+    <point/>
+   </object>
   </objectgroup>
   <objectgroup id="17" name="collisions"/>
+  <objectgroup id="19" name="affichage">
+   <object id="109" name="info route_1_1" x="416" y="192" width="16.25" height="16"/>
+   <object id="110" name="info route_1_direction 0" x="272" y="128" width="31.25" height="15.75"/>
+   <object id="113" name="stop route_1_bike 0" x="432" y="256" width="15.5" height="31.5"/>
+   <object id="114" name="banc route_1_banc_1 0" x="448" y="64" width="15.75" height="32"/>
+   <object id="115" name="banc route_1_banc_2 0" x="448" y="160" width="15.75" height="32.25"/>
+  </objectgroup>
  </group>
 </map>

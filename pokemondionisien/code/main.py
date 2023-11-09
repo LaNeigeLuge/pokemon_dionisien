@@ -1,6 +1,5 @@
 import pygame
 from game import Game
-
 pygame.init()
 
 if __name__ == "__main__":
