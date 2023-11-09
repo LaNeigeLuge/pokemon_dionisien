@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="119">
+<map version="1.10" tiledversion="git" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="119">
  <tileset firstgid="1" source="tileset_pokemon_sdk.tsx"/>
  <group id="12" name="layer_0">
   <layer id="4" name="eau" width="80" height="30">
@@ -381,35 +381,28 @@
 </data>
   </layer>
  </group>
- <group id="13" name="collisions" visible="0" offsetx="0" offsety="16">
-  <objectgroup id="19" name="affichage">
-   <object id="109" name="info route_1_1" x="1056" y="176" width="16.25" height="16"/>
-   <object id="110" name="info route_1_2" x="912.75" y="112.25" width="31.25" height="15.75"/>
-   <object id="113" name="stop bike_route_1_1" x="1072.5" y="240.5" width="15.5" height="31.5"/>
-   <object id="114" name="banc route_1_1" x="1088.25" y="48" width="15.75" height="32"/>
-   <object id="115" name="banc route_1_2" x="1088.25" y="143.75" width="15.75" height="32.25"/>
-  </objectgroup>
+ <group id="20" name="collisions">
   <objectgroup id="18" name="porte">
-   <object id="99" name="switch maison_0_0" x="864" y="16" width="16" height="16"/>
-   <object id="100" name="switch maison_1_0" x="784" y="16" width="16" height="16"/>
-   <object id="102" name="switch atelier_0_0" x="672" y="32" width="16" height="16"/>
-   <object id="103" name="switch residence_0_0" x="816" y="192" width="16" height="16"/>
-   <object id="105" name="switch shop_0_0" x="784" y="368" width="16" height="16"/>
-   <object id="106" name="switch residence_1_0" x="896" y="400" width="15.25" height="16"/>
-   <object id="118" name="spawn route_1_0" x="1046" y="201.75">
+   <object id="99" name="switch maison_0 0" x="864" y="32" width="16" height="16"/>
+   <object id="100" name="switch maison_1 0" x="784" y="32" width="16" height="16"/>
+   <object id="102" name="switch atelier_0 0" x="672" y="48" width="16" height="16"/>
+   <object id="103" name="switch residence_0 0" x="816" y="208" width="16" height="16"/>
+   <object id="105" name="switch shop_0 0" x="784" y="384" width="16" height="16"/>
+   <object id="106" name="switch residence_1 0" x="896" y="416" width="15.25" height="16"/>
+   <object id="119" name="spawn maison_0 0" x="880" y="64">
     <point/>
    </object>
-   <object id="120" name="spawn map_start 0" x="400" y="224">
+   <object id="120" name="spawn map_start 0" x="1040" y="224">
     <point/>
    </object>
   </objectgroup>
   <objectgroup id="17" name="collisions"/>
   <objectgroup id="19" name="affichage">
-   <object id="109" name="info route_1_1" x="416" y="192" width="16.25" height="16"/>
-   <object id="110" name="info route_1_direction 0" x="272" y="128" width="31.25" height="15.75"/>
-   <object id="113" name="stop route_1_bike 0" x="432" y="256" width="15.5" height="31.5"/>
-   <object id="114" name="banc route_1_banc_1 0" x="448" y="64" width="15.75" height="32"/>
-   <object id="115" name="banc route_1_banc_2 0" x="448" y="160" width="15.75" height="32.25"/>
+   <object id="109" name="info route_1_1" x="1056" y="192" width="16.25" height="16"/>
+   <object id="110" name="info route_1_direction 0" x="912" y="128" width="31.25" height="15.75"/>
+   <object id="113" name="stop route_1_bike 0" x="1072" y="256" width="15.5" height="31.5"/>
+   <object id="114" name="banc route_1_banc_1 0" x="1088" y="64" width="15.75" height="32"/>
+   <object id="115" name="banc route_1_banc_2 0" x="1088" y="160" width="15.75" height="32.25"/>
   </objectgroup>
  </group>
 </map>
