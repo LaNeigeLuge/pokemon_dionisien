@@ -14,6 +14,7 @@ class Player(Entity):
                          Pokemon.create_pokemon("Charizard", 10),
                          Pokemon.create_pokemon("Squirtle", 10)]
         self.switch: list[Switch] = []
+        self.collisions = []
         self.change_map: Switch = None
 
     def update(self) -> None:
@@ -25,20 +26,37 @@ class Player(Entity):
             next_hitbox = self.hitbox.copy()
             if self.keylistener.key_pressed(pygame.K_q):
                 next_hitbox = self.check_hitbox("left", next_hitbox)
-                self.check_collisions_switch(next_hitbox)
-                self.move_left()
+                if not self.check_collision(next_hitbox):
+                    
+                    self.check_collisions_switch(next_hitbox)
+                    self.move_left()
+                else:
+                    self.direction = "left"
             elif self.keylistener.key_pressed(pygame.K_d):
                 next_hitbox = self.check_hitbox("right", next_hitbox)
-                self.check_collisions_switch(next_hitbox)
-                self.move_right()
+                if not self.check_collision(next_hitbox):
+
+                    self.check_collisions_switch(next_hitbox)
+                    self.move_right()
+                else:
+                    self.direction = "right"
             elif self.keylistener.key_pressed(pygame.K_z):
                 next_hitbox = self.check_hitbox("up", next_hitbox)
-                self.check_collisions_switch(next_hitbox)
-                self.move_up()
+                if not self.check_collision(next_hitbox):
+
+                    self.check_collisions_switch(next_hitbox)
+                    self.move_up()
+                else:
+                    self.direction = "up"
             elif self.keylistener.key_pressed(pygame.K_s):
                 next_hitbox = self.check_hitbox("down", next_hitbox)
-                self.check_collisions_switch(next_hitbox)
-                self.move_down()
+                if not self.check_collision(next_hitbox):
+
+                    self.check_collisions_switch(next_hitbox)
+                    self.move_down()
+                else:
+                    self.direction = "down"
+
             elif self.keylistener.key_pressed(pygame.K_m):
                 self.get_position()
     
@@ -61,7 +79,15 @@ class Player(Entity):
                     print("switch_player", switch.name)
                     self.change_map = switch
                 return None
-
+            
+    def check_collision(self, hitbox: pygame.Rect) -> bool:
+        for collision in self.collisions:
+            if hitbox.colliderect(collision):
+                return True
+        return None
 
     def add_switch(self, switch: Switch):
         self.switch = switch
+
+    def add_collisions(self, collisions):
+        self.collisions = collisions
