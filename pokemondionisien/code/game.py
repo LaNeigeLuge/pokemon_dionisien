@@ -3,19 +3,21 @@ from keylistener import KeyListener
 from map import Map
 from player import Player
 from screen import Screen
-from menu import Menu
+from menu_new import EnhancedMenu
 
 
 class Game:
     def __init__(self):
         self.running: bool = True
         self.paused: bool = False
-        self.menu: Menu = Menu()
         self.screen: Screen = Screen()
         self.map: Map = Map(self.screen)
         self.keylistener: KeyListener = KeyListener()
         self.player: Player = Player(self.keylistener, self.screen, 406, 201)
         self.map.add_player(self.player)
+
+        # Initialize menu after player is created
+        self.menu: EnhancedMenu = EnhancedMenu(self.player)
 
     def run(self) -> None:
         while self.running:
@@ -34,11 +36,16 @@ class Game:
             if event.type == pygame.QUIT:
                 pygame.quit()
             elif event.type == pygame.KEYDOWN:
-                self.keylistener.add_key(event.key)
-                if event.key == pygame.K_SPACE:
-                    print("Pausing game")
-                    self.paused = self.paused is not True
-                    self.menu.paused = self.paused
+                if self.paused:
+                    # Menu is open, handle menu navigation
+                    self.menu.handle_key(event.key)
+                else:
+                    # Game is active, handle normal input
+                    self.keylistener.add_key(event.key)
+                    if event.key == pygame.K_SPACE or event.key == pygame.K_ESCAPE:
+                        print("Opening menu")
+                        self.paused = True
+                        self.menu.paused = True
             elif event.type == pygame.KEYUP:
-                self.keylistener.remove_key(event.key)
-            
+                if not self.paused:
+                    self.keylistener.remove_key(event.key)

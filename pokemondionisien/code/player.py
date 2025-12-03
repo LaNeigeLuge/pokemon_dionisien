@@ -1,4 +1,5 @@
 import pygame
+import time
 
 from entity import Entity
 from keylistener import KeyListener
@@ -9,13 +10,24 @@ from switch import Switch
 class Player(Entity):
     def __init__(self, keylistener: KeyListener, screen: Screen, x: int, y: int):
         super().__init__(keylistener, screen, x, y)
-        self.pokedollars: int = 0
+        self.pokedollars: int = 500
         self.pokemons = [Pokemon.create_pokemon("Pikachu", 10),
                          Pokemon.create_pokemon("Charizard", 10),
                          Pokemon.create_pokemon("Squirtle", 10)]
         self.switch: list[Switch] = []
         self.collisions = []
         self.change_map: Switch = None
+
+        # New menu features
+        self.badges: int = 0
+        self.pokedex: set = {p.dbSymbol for p in self.pokemons}
+        self.inventory: dict = {
+            'pokeballs': 10,
+            'potions': 5,
+            'super_potions': 2,
+            'revives': 1
+        }
+        self.playtime_start: float = time.time()
 
     def update(self) -> None:
         self.check_move()
